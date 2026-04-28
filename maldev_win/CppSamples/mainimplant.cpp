@@ -76,7 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	if (rv != 0) {
 		th = CreateThread(0, 0, (LPTHREAD_START_ROUTINE) exec_mem, 0, 0, 0);
-		WaitForSingleObject(th, -i);
+		WaitForSingleObject(th, -1);
 	}
 	
 	//Sleep(60000);

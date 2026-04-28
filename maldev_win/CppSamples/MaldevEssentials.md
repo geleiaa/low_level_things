@@ -33,7 +33,7 @@ All credits for => ```author: reenz0h (twitter: @sektor7net)```
     - these and other implants/droppers can be compiled like this:
     ``` 
     @ECHO OFF
-    cl.exe /nologo /Ox /MT /W0 /GS- /DNDEBUG /Tcode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
+    cl.exe /nologo /Ox /MT /W0 /GS- /DNDEBUG /Tccode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
     ```
 
 - AV or EDRs can see memory containing READ,WRITE,EXEC perms...????
@@ -66,7 +66,7 @@ All credits for => ```author: reenz0h (twitter: @sektor7net)```
 
      rc resource.rc
      cvtres /MACHINE:x64 /OUT:resources.o resources.res
-     cl.exe /nologo /0x /MT /WO /GS- /DNDEBUG /Tcode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64 resources.o
+     cl.exe /nologo /0x /MT /WO /GS- /DNDEBUG /Tccode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64 resources.o
      ```
 
 #### resources 
@@ -137,7 +137,7 @@ All credits for => ```author: reenz0h (twitter: @sektor7net)```
 - these and other implants/droppers can be compiled like this:
     ``` 
     @ECHO OFF
-    cl.exe /nologo /Ox /MT /W0 /GS- /DNDEBUG /Tcode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
+    cl.exe /nologo /Ox /MT /W0 /GS- /DNDEBUG /Tccode.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
     ```  
 
 #### resources
@@ -160,7 +160,7 @@ All credits for => ```author: reenz0h (twitter: @sektor7net)```
   - these and other implants/droppers can be compiled like this:
     ``` 
     @ECHO OFF
-    cl.exe /nologo /Ox /MT /W0 /GS- /DNDEBUG /Tcimplant.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
+    cl.exe /nologo /0x /MT /W0 /GS- /DNDEBUG /Tcimplant.cpp /link /OUT:implant.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
     ```
 
 
@@ -186,14 +186,14 @@ All credits for => ```author: reenz0h (twitter: @sektor7net)```
 
   ```
    @ECHO OFF
-   cl.exe /nologo /0x /MT /W0 /GS- /DNDEBUG /Tcode.cpp /link /OUT:code.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
+   cl.exe /nologo /0x /MT /W0 /GS- /DNDEBUG /Tccode.cpp /link /OUT:code.exe /SUBSYSTEM:CONSOLE /MACHINE:x64
   ```
 
 - Compile GUI Program (in a .bat file)
 
   ```
   @ECHO OFF
-  cl.exe /nologo /0x /MT /W0 /GS- /DNDEBUG /Tcode.cpp /link /OUT:code.exe /SUBSYSTEM:WINDOWS /MACHINE:x64
+  cl.exe /nologo /0x /MT /W0 /GS- /DNDEBUG /Tccode.cpp /link /OUT:code.exe /SUBSYSTEM:WINDOWS /MACHINE:x64
   ```  
 
 > ___
